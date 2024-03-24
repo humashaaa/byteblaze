@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { Link, Outlet, useLoaderData,  } from "react-router-dom";
+import { MdBookmarkAdd } from "react-icons/md";
+
+
 
 const Blog = () => {
 
     const blog = useLoaderData();
      const {public_reactions_count, title, description,published_at, id,comments_count, reading_time_minutes,tags} = blog
-     console.log(blog)
+    
 
      const [tabindex, setTabindex] = useState(0)
 
@@ -43,20 +46,14 @@ const Blog = () => {
 		</svg>
 		<span>Author</span>
 	</Link>
+
+    <div className="bg-secondary cursor-pointer  p-3 ml-5 rounded-full hover:bg-opacity-30 hover:scale-105 overflow-hidden"><MdBookmarkAdd size={20} className="text-primary opacity-80"></MdBookmarkAdd></div>
 	
 </div>
 
-		<div className="dark:text-gray-800">
-			<p>Insert the actual text content here...</p>
-		</div>
         <Outlet></Outlet>
 	</article>
 	<div>
- 		
- 		<div className="space-y-2">
- 			<h4 className="text-lg font-semibold">Related posts</h4>
- 			
- 		</div>
  	</div>
  </div>
     );

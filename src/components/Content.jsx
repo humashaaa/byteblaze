@@ -1,5 +1,7 @@
 import { Link, Outlet, useLoaderData } from "react-router-dom";
 import placeholderimage from '../assets/404.jpg'
+import Markdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
 const Content = () => {
 
@@ -10,7 +12,7 @@ const Content = () => {
         <img role="presentation" className="object-cover w-full rounded h-44 dark:bg-gray-500" src={cover_image || placeholderimage} />
         <div className="p-5 space-y-2">
             <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">{title}</h3>
-            {body_html}
+            <Markdown rehypePlugins={rehypeRaw}>{body_html}</Markdown>
         </div>
     </div>
     );
